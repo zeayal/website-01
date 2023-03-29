@@ -1,0 +1,66 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 20px;
+    color: #333;
+}
+
+.title {
+    /* 布局垂直居中 */
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.menu_list {
+    /* 导航列表水平排列 */
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.menu_list li {
+    /* 导航菜单item */
+    margin: 0 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.menu_list li:hover {
+    color: #000;
+}
+
+/* 登录注册按钮 */
+.register {
+    display: flex;
+    align-items: center;
+}
+
+.login, .signup  {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.login:hover {
+    color: #000;
+}
+
+.signup {
+    background: #333;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.signup:hover {
+    background: #000;
+}
