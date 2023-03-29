@@ -14,3 +14,9 @@ next.js
 ## 项目初始化
 
 pnpm create next-app
+
+## 项目进度
+
+/_ 暂时先写到这了，代码传到 github 已上传 _/
+
+/_ https://github.com/zeayal/website-01 _/
