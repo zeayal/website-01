@@ -1,0 +1,47 @@
+.post_item {
+    min-height: 300px;
+    width: 100%;
+}
+.image_wrapper {
+    position: relative;
+    height: 160px;
+    width: 100%;
+    
+}
+
+ 
+.content {
+    padding-top: 1rem;
+}
+
+.author_date {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.post_title {
+   font-weight: 600;
+   font-size: 1rem;
+   padding: 6px 0 ;
+   margin: 0;
+}
+
+.p_content {
+    font-size: 0.8rem;
+    padding: 6px 0 ;
+    margin: 0;
+    color: #666;
+}
+
+.tags {
+    font-size: 0.7rem;
+}
+
+.tag {
+    margin-top: 3px;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 12px;
+    margin-right: 4px;
+    border: 1px solid #666;
+}

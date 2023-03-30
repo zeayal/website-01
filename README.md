@@ -20,3 +20,7 @@ pnpm create next-app
 /_ 暂时先写到这了，代码传到 github 已上传 _/
 
 /_ https://github.com/zeayal/website-01 _/
+
+第一节课是以上内容^^^^
+
+## 第二节课我们看下要做什么
