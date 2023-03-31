@@ -1,0 +1,74 @@
+.footer {
+  background: rgb(236, 126, 90);
+  background: linear-gradient(
+    142deg,
+    rgba(236, 126, 90, 1) 0%,
+    rgba(198, 100, 158, 1) 35%,
+    rgba(127, 15, 212, 1) 100%
+  );
+  color: white;
+
+  padding: 3rem 3rem;
+}
+
+.footer_top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer_top > h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.footer_top > p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.footer_top > a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.footer_content {
+  margin-top: 3rem;
+ 
+  /* 看图上更适合用grid布局 */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.list_item {
+  /* 加个边框，方便调试大小布局 */
+  /* border: 1px solid #fff; */
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.footer_bottom {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+ 

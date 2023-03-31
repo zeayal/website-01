@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import NavBar from '@/components/Navbar'
 import Banner from '@/components/Banner'
 import PostItem from '@/components/PostItem'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -130,7 +131,7 @@ export default function Home() {
     }
   ]
 
-
+  // footer要放到main外面，因为main有内填充，footer两边没有空隙
   return (
     <>
       <Head>
@@ -144,6 +145,7 @@ export default function Home() {
         <Banner />
         <PostList posts={posts} />
       </main>
+      <Footer />
     </>
   )
 }
