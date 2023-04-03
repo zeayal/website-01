@@ -1,26 +1,17 @@
-# 项目官网
+# 项目文档
 
-## 选择前端框架
+该项目为前后端分离项目, 前端根据服务的提供的接口渲染页面, 服务端提供接口, 以及数据库的操作.
 
-next.js
+## 前端
 
-页面组件使用：react 组件 css + html
+monster-frontend
 
-## 分析设计稿
+monster-admin-frontend
 
-1.导航头部 (组件一 Navbar)
-2、Banner 图区域
 
-## 项目初始化
 
-pnpm create next-app
 
-## 项目进度
+## 服务端
 
-/_ 暂时先写到这了，代码传到 github 已上传 _/
 
-/_ https://github.com/zeayal/website-01 _/
-
-第一节课是以上内容^^^^
-
-## 第二节课我们看下要做什么
+monster-backend
