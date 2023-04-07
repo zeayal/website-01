@@ -1,5 +1,4 @@
-const { Client } = require('pg');
-
+const mysql = require('mysql');
 const dbConfig = require('../configs/db.config');
 const params = {
     user: dbConfig.db_username,
@@ -9,13 +8,21 @@ const params = {
     port: dbConfig.db_port,
 }
 console.log('dbConfig', params)
-const client = new Client(params)
-client.connect();
+const connection = mysql.createConnection(params);
+connection.connect();
 
 
-async function query(sql, params) {
-    const res = await client.query(sql);
-    return res.rows;
+// 将 connection.query 封装成 promise
+function query(sql, args) {
+    return new Promise((resolve, reject) => {
+        connection.query(sql, args, (error, result, fields) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(result);
+            }
+        })
+    })
 }
 
 module.exports = {
