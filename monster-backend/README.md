@@ -4,7 +4,6 @@ https://github.com/geshan/expressjs-structure
 
 ## Day1
 
-目标：设计出一张文章表，实现文章的增删改查
 
 增删改给管理后台使用 monster-admin-frontend  （使用antd或者mui快速搭建）
 查主要提供给前台使用 monster-frontend （使用next.js 搭建）
@@ -28,7 +27,7 @@ post 文章表
 - is_public: (int) 是否公开
 - created_at: (DATETIME) 创建时间
 - updated_at: (DATETIME) 更新时间
-
+- photo_thumb: (VARCHAR, 255) 图片缩略图
 
 ## DAY2 
 
