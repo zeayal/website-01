@@ -60,7 +60,7 @@ CREATE 	TABLE `post` (
     `created_at` DATETIME NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     `update_at` DATETIME NOT NULL DEFAULT(CURRENT_TIMESTAMP) ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
-    UNIQUE KEY `category_id` (`category_id`),
+    KEY `category_id` (`category_id`), -- 这里不能使用 UNIQUE KEY，因为有多个文章可以属于同一个分类
     CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `post_category` (`id`)
 );
 
@@ -100,3 +100,18 @@ INSERT INTO `post` VALUES (1, 1, 'nodejs', 'nodejs是一个基于Chrome V8引擎
 
  /posts
  /posts/:id
+
+ ## 尝试使用 mysql2 代替 mysql 包
+
+ 连不上mysql居然是因为我把 .env 文件给删除了。一般不要把.env文件提交到git仓库里，因为里面有敏感信息
+
+ ### 第三节接着学接口逻辑
+
+| 请求方法 | 请求路径      | 作用                           |
+| -------- | ------------- | ------------------------------ |
+| post     | /api/v1/posts | 创建一个接口，用来新增一篇文章 |
+| get      | /api/v1/posts | 获取所有文章                   |
+| put      | /api/v1/posts | 更新一篇文章                   |
+| delete   | /api/v1/posts | 删除一篇文章                   |
+
+已完成以上接口，curl 测试成功

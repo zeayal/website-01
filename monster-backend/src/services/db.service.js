@@ -19,6 +19,7 @@ function query(sql, args) {
             if (error) {
                 reject(error);
             } else {
+                console.log('result', result)
                 resolve(result);
             }
         })

@@ -1,8 +1,32 @@
 ### 文章管理接口
+
+#### 新增文章
 POST http://localhost:8080/api/v1/posts HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "文章标题1",
-    "content": "文章内容1",
+    "categoryId": 1,
+    "title": "文章标题2",
+    "content": "文章内容2",
+    "author": "作者2"
 }
+
+#### 获取文章列表
+GET http://localhost:8080/api/v1/posts HTTP/1.1
+Content-Type: application/json
+
+#### 修改文章详情
+PUT http://localhost:8080/api/v1/posts/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "categoryId": 1,
+    "title": "修改后的文章标题5",
+    "content": "修改后的文章内容5",
+    "author": "修改后的作者5"
+}
+
+
+#### 删除文章
+DELETE http://localhost:8080/api/v1/posts/4 HTTP/1.1
+Content-Type: application/json
