@@ -114,3 +114,12 @@ INSERT INTO `post` VALUES (1, 1, 'nodejs', 'nodejs是一个基于Chrome V8引擎
 | delete   | /api/v1/posts | 删除一篇文章                   |
 
 已完成以上接口，curl 测试成功
+
+
+### 创建用户表
+
+1.完成用户登陆接口
+
+2.完成验证用户是否登陆中间件
+
+3.已登录的用户可以查询用户列表
