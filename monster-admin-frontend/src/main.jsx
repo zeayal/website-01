@@ -1,13 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { createBrowserRouter, BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme } from "antd";
+
+const router = createBrowserRouter([{ path: "/", element: <App /> }]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#ff5900",
+        },
+      }}
+    >
       <BrowserRouter>
         <App />
       </BrowserRouter>
