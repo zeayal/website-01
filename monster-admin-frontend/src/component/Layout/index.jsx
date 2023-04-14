@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Layout, Menu, theme } from "antd";
+import React, { useEffect } from "react";
+import { Button, Layout, Menu, theme, Space, Spin } from "antd";
 import { Link } from "react-router-dom";
 import {
   HomeOutlined,
@@ -7,13 +7,28 @@ import {
   ContainerOutlined,
 } from "@ant-design/icons";
 import { Outlet } from "react-router-dom";
-
+import { apiUserInfo } from "../../http/user.http";
 const { Header, Sider, Content, Footer } = Layout;
 
 const SiteLayout = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const [userInfo, setUserInfo] = React.useState(null);
+  const fetchUserInfo = async () => {
+    const res = await apiUserInfo();
+    console.log("res", res);
+    if (res.code === 0) {
+      // 获取用户信息成功
+      setUserInfo(res.data);
+    }
+  };
+
+  // 用户刷新页面时重新调用 getUserInfo 接口
+  useEffect(() => {
+    fetchUserInfo();
+    // console.log("res", res);
+  }, []);
 
   const menus = [
     {
@@ -37,6 +52,21 @@ const SiteLayout = ({ children }) => {
   ];
   const LayoutTheme = "dark";
   const siderTheme = "light";
+  if (!userInfo) {
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
+        <Spin tip="Loading" size="small" />
+      </div>
+    );
+  }
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header
