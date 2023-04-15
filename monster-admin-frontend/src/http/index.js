@@ -17,6 +17,9 @@ http.interceptors.response.use(
     const { data } = res;
     if (data.code !== 0) {
       message.error(data.message);
+    } else {
+      // 200
+      message.info(data.message)
     }
     return data;
   },
@@ -25,7 +28,7 @@ http.interceptors.response.use(
     const { status, data } = err.response || {};
     if (status === 401) {
       // 需要重定向到登陆页面
-      window.location.href = "/login";
+      window.location.href = "/monster-admin-frontend/login";
     } else {
       message.error("请求失败, 服务端错误");
     }

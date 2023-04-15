@@ -4,6 +4,7 @@ import { mapToken } from "./staticCustomer";
 console.log('mapToken', mapToken);
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/monster-admin-frontend/',
   plugins: [react()],
   css: {
     preprocessorOptions: {

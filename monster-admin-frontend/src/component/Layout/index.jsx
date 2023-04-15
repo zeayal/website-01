@@ -5,6 +5,7 @@ import {
   HomeOutlined,
   UserOutlined,
   ContainerOutlined,
+  BuildOutlined,
 } from "@ant-design/icons";
 import { Outlet } from "react-router-dom";
 import { apiUserInfo } from "../../http/user.http";
@@ -14,10 +15,10 @@ const SiteLayout = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-  const [userInfo, setUserInfo] = React.useState(null);
+  const [userInfo, setUserInfo] = React.useState({});
   const fetchUserInfo = async () => {
     const res = await apiUserInfo();
-    console.log("res", res);
+    console.log("res----", res);
     if (res.code === 0) {
       // 获取用户信息成功
       setUserInfo(res.data);
@@ -25,10 +26,11 @@ const SiteLayout = ({ children }) => {
   };
 
   // 用户刷新页面时重新调用 getUserInfo 接口
-  useEffect(() => {
-    fetchUserInfo();
-    // console.log("res", res);
-  }, []);
+  // useEffect(() => {
+  //   fetchUserInfo();
+  //   console.log("用户刷新页面时重新调用 getUserInfo 接口");
+  //   // console.log("res", res);
+  // }, []);
 
   const menus = [
     {
@@ -45,6 +47,12 @@ const SiteLayout = ({ children }) => {
     },
     {
       id: 3,
+      label: <Link to="/category">分类管理</Link>,
+      key: "category",
+      icon: <BuildOutlined />,
+    },
+    {
+      id: 3,
       label: <Link to="/post">文章管理</Link>,
       key: "post",
       icon: <ContainerOutlined />,
@@ -57,10 +65,10 @@ const SiteLayout = ({ children }) => {
       <div
         style={{
           width: "100vw",
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Spin tip="Loading" size="small" />
