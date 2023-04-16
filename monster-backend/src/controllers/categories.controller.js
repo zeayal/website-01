@@ -2,7 +2,7 @@ const categoryService = require("../services/categories.service");
 
 const getAllCategories = async (req, res) => {
   const rows = await categoryService.queryAllCategories();
-  console.log('rows', rows);
+  console.log("rows", rows);
   if (rows?.length > -1) {
     return res.json({
       code: 0,
@@ -59,7 +59,7 @@ const updateCategory = async (req, res) => {
 const getCategoryById = async (req, res) => {
   const { id } = req.params;
   const rows = await categoryService.queryCategoryById(id);
-  console.log('rows', rows);
+  console.log("rows", rows);
   if (rows.length) {
     return res.json({
       code: 0,
@@ -77,19 +77,37 @@ const getCategoryById = async (req, res) => {
 // 删除分类, 如果分类下已经存在文章, 则不允许删除
 const deleteCategoryById = async (req, res) => {
   const { id } = req.params;
-  const rows = await categoryService.queryDeleteCategoryById(id);
-  if (rows.affectedRows) {
-    return res.json({
-      code: 0,
-      message: "删除分类成功",
-      data: rows,
+  try {
+    const rows = await categoryService.queryDeleteCategoryById(id);
+    if (rows.affectedRows) {
+      return res.json({
+        code: 0,
+        message: "删除分类成功",
+        data: rows,
+      });
+    }
+    res.json({
+      code: -1,
+      message: "删除分类失败",
+      data: null,
     });
+  } catch (error) {
+    console.log(error);
+    if (error.sqlState === "23000") {
+      res.json({
+        code: -1,
+        message:
+          "很抱歉，您无法删除该分类，因为它已经有相关联的文章。您需要先删除与该分类相关联的所有文章，然后才能尝试删除该分类",
+        data: null,
+      });
+    } else {
+      res.json({
+        code: -1,
+        message: error.sqlMessage,
+        data: null,
+      });
+    }
   }
-  res.json({
-    code: -1,
-    message: "删除分类失败",
-    data: null,
-  });
 };
 
 module.exports = {

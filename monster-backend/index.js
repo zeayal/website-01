@@ -33,12 +33,14 @@ app.get("/", (req, res) => res.json({ message: "请访问 /api/v1/posts" }));
 app.post("/api/v1/login", usersController.login);
 app.use(
   "/api/v1/users",
+  authMiddleWare,
   require("./src/routes/users.router.js")
 );
-app.get("/api/v1/userInfo", usersController.getUserInfo)
-app.use("/api/v1/posts", postsRouter);
+app.get("/api/v1/userInfo",  authMiddleWare, usersController.getUserInfo)
+app.use("/api/v1/posts", authMiddleWare, postsRouter);
 app.use(
   "/api/v1/categories",
+  authMiddleWare,
   require("./src/routes/categories.router.js")
 );
 

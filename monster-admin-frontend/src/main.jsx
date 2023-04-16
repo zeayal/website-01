@@ -4,6 +4,7 @@ import { createBrowserRouter, BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import { ConfigProvider, theme } from "antd";
+import './assets/reset.less';
 
 const router = createBrowserRouter([{ path: "/", element: <App /> }]);
 

@@ -15,10 +15,9 @@ const SiteLayout = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-  const [userInfo, setUserInfo] = React.useState({});
+  const [userInfo, setUserInfo] = React.useState(null);
   const fetchUserInfo = async () => {
     const res = await apiUserInfo();
-    console.log("res----", res);
     if (res.code === 0) {
       // 获取用户信息成功
       setUserInfo(res.data);
@@ -26,11 +25,9 @@ const SiteLayout = ({ children }) => {
   };
 
   // 用户刷新页面时重新调用 getUserInfo 接口
-  // useEffect(() => {
-  //   fetchUserInfo();
-  //   console.log("用户刷新页面时重新调用 getUserInfo 接口");
-  //   // console.log("res", res);
-  // }, []);
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
 
   const menus = [
     {

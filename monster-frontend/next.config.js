@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-     // 修改配置要重启项目，否则不生效。以下两种配置都可以
+    // 修改配置要重启项目，否则不生效。以下两种配置都可以
     remotePatterns: [
       {
         protocol: "https",
@@ -10,8 +10,10 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
-   
     // domains: ["images.unsplash.com"],
+  },
+  async rewrites() {
+    return [{ source: "/api/:path*", destination: "http://127.0.0.1:8080/api/:path*" }];
   },
 };
 
