@@ -44,6 +44,6 @@ app.use(
   require("./src/routes/categories.router.js")
 );
 
-app.listen(8080, () => {
+app.listen(3000, () => {
   console.log("Server is running on port http://localhost:8080");
 });
