@@ -5,7 +5,10 @@ const login = async (req, res) => {
   const { username, password } = req.body;
   const rows = await userService.findUserByUsername(username);
   console.log("rows", rows);
-  console.log('req.session.user',req.session? req.session.user: 'res.session not exist');
+  console.log(
+    "req.session.user",
+    req.session ? req.session.user : "res.session not exist"
+  );
   if (rows.length === 0) {
     return res.json({ code: -1, message: "用户名不存在1", data: null });
   }
@@ -18,9 +21,18 @@ const login = async (req, res) => {
     username: user.username,
     is_admin: user.is_admin,
   };
-  res.json({ code: 0, message: "登录成功", data: null });
+  res.json({ code: 0, message: "登录成功", data: req.session.user });
+};
+
+const getUserInfo = (req, res) => {
+  res.json({
+    code: 0,
+    message: "获取用户信息成功",
+    data: req.session.user,
+  });
 };
 
 module.exports = {
   login,
+  getUserInfo,
 };

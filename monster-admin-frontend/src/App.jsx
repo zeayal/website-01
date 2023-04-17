@@ -7,6 +7,7 @@ import Post from "./pages/post";
 import User from "./pages/user";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Category from "./pages/category";
 
 function App() {
   let element = useRoutes([
@@ -26,6 +27,7 @@ function App() {
           path: "user",
           element: <User />,
         },
+        { path: "category", element: <Category /> },
         { path: "post", element: <Post /> },
       ],
     },
