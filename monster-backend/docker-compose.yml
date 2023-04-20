@@ -1,18 +1,28 @@
 version: '3'
 
 services:
-  app:
+  server:
+    container_name: express_app_1
     build: .
     ports:
       - 3000:3000
     depends_on:
       - db
+    networks:
+      - my-network
+
 
   db:
-    image: mysql
+    container_name: mysql_db_1
+    image: mysql:5
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: monster
     ports:
       - 3306:3306
+    networks:
+      - my-network
+
+networks:
+  my-network:
