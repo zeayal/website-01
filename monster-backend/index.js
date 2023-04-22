@@ -37,7 +37,7 @@ app.use(
   require("./src/routes/users.router.js")
 );
 app.get("/api/v1/userInfo",  authMiddleWare, usersController.getUserInfo)
-app.use("/api/v1/posts", authMiddleWare, postsRouter);
+app.use("/api/v1/posts", postsRouter);
 app.use(
   "/api/v1/categories",
   authMiddleWare,
